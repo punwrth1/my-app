@@ -28,15 +28,6 @@ export default function ContactUsList() {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold text-center mb-6">Your Contact Requests</h1>
-      
-      {/* Back Button */}
-      <div className="mb-4">
-        <Link href="/contactus">
-          <button className="bg-gray-500 text-white py-2 px-6 rounded-lg text-xl hover:bg-gray-600">
-            Back to Contact Us
-          </button>
-        </Link>
-      </div>
 
       {contactRequests.length > 0 ? (
         contactRequests.map((request) => (
@@ -50,6 +41,15 @@ export default function ContactUsList() {
       ) : (
         <p>No contact requests found.</p>
       )}
+
+      {/* Back Button */}
+      <div className="mt-4 text-center">
+        <Link href="/contactus">
+          <button className="bg-gray-500 text-white py-2 px-6 rounded-lg text-xl hover:bg-gray-600">
+            Back to Contact Us
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
