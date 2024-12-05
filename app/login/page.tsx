@@ -102,10 +102,10 @@ export default function LoginPage() {
           <div className="flex justify-center items-center h-full text-white">
             <div>
               <h4 className="mb-6 text-xl font-semibold">
-                We are more than just a company
+                Contact Us
               </h4>
               <p className="text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              we are dedicated to providing exceptional service and support. Whether you have a question, feedback, or need assistance, we want to hear from you. Our "Contact Us" form makes it easy for you to reach out to us directly. Simply fill out the form with your topic, details, and contact information, and our team will get back to you as soon as possible. We value your input and are committed to ensuring that your experience with us is as seamless and pleasant as possible. Please don't hesitate to get in touch with us if you need anything. We're here to help!
               </p>
             </div>
           </div>
