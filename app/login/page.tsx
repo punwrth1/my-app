@@ -44,32 +44,61 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="h-full bg-neutral-200 dark:bg-neutral-700">
-      <div className="container h-full p-10">
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <input
-              type="text"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              placeholder="Username"
-              className="w-full p-4 border"
-            />
+    <section className="h-screen bg-gradient-to-r from-blue-500 to-indigo-600">
+      <div className="container mx-auto flex items-center justify-center h-full p-6">
+        <div className="bg-white w-full max-w-sm rounded-lg shadow-lg p-8">
+          <h2 className="text-3xl font-semibold text-center mb-6 text-gray-800">Login</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label htmlFor="username" className="block text-lg font-medium text-gray-600">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                value={formData.username}
+                onChange={handleChange}
+                placeholder="Enter your username"
+                className="w-full p-4 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div className="mb-6">
+              <label htmlFor="password" className="block text-lg font-medium text-gray-600">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter your password"
+                className="w-full p-4 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200"
+            >
+              Log In
+            </button>
+          </form>
+
+          {error && (
+            <div className="mt-4 text-center text-red-600">
+              <p>{error}</p>
+            </div>
+          )}
+
+          <div className="mt-6 text-center">
+            <p className="text-lg text-gray-600">
+              Don't have an account?{" "}
+              <a
+                href="/register"
+                className="text-blue-500 font-semibold hover:text-blue-700"
+              >
+                Create one here
+              </a>
+            </p>
           </div>
-          <div className="mb-4">
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Password"
-              className="w-full p-4 border"
-            />
-          </div>
-          <button type="submit">Log In</button>
-        </form>
-        {error && <div>{error}</div>}
+        </div>
       </div>
     </section>
   );
