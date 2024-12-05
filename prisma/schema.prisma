@@ -4,25 +4,23 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")  // Uses the DATABASE_URL defined in .env
+  url      = env("DATABASE_URL") // Uses the DATABASE_URL defined in .env
 }
 
 model User {
-  id        String   @id @default(cuid())   // Uses cuid() for generating unique id
-  username  String   @unique
-  email     String   @unique
+  id        String   @id @default(cuid())   // Unique identifier for the user
+  username  String   @unique                // Ensure usernames are unique
+  email     String   @unique                // Ensure emails are unique
   password  String
   role      String
-  createdAt DateTime @default(now())         // Sets createdAt to current timestamp
-  updatedAt DateTime @updatedAt              // Automatically updates updatedAt when the record is modified
+  createdAt DateTime @default(now())        // Timestamp when the user is created
+  updatedAt DateTime @updatedAt             // Automatically updated on record modification
 }
 
-
 model ContactUs {
-  id      String   @id @default(cuid())
-  topic   String
-  details String
-  contact String
-  status  String   @default("pending")
-  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())   // Unique identifier for the contact request
+  topic     String   // Topic of the contact request
+  details   String   // Details provided by the user
+  contact   String   // Contact information (e.g., phone number or email)
+  status    String   @default("pending")    // Default status of "pending"
 }

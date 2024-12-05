@@ -1,8 +1,7 @@
-// app/api/contactus/route.ts
-import prisma from "@/utils/db";
+import prisma from "@/utils/db";  // Ensure this path is correct
 
-// GET - Fetch all contact requests
-export async function GET() {
+// GET - Fetch all contact requests (For admin)
+export async function GET(req: Request) {
   try {
     const contactRequests = await prisma.contactUs.findMany();
     return new Response(JSON.stringify(contactRequests), { status: 200 });
@@ -15,10 +14,9 @@ export async function GET() {
   }
 }
 
-// POST - Create a new contact request
+// POST - Create a new contact request (For users filling out the form)
 export async function POST(req: Request) {
   const data = await req.json();
-
   try {
     const newRequest = await prisma.contactUs.create({
       data: {
@@ -38,7 +36,7 @@ export async function POST(req: Request) {
   }
 }
 
-// PUT - Update the status of a contact request
+// PUT - Update the status of a contact request (Approve or Reject) (For admin)
 export async function PUT(req: Request) {
   const data = await req.json();
   const { id, status } = data;
@@ -65,7 +63,7 @@ export async function PUT(req: Request) {
   }
 }
 
-// DELETE - Delete a contact request
+// DELETE - Delete a contact request (For admin)
 export async function DELETE(req: Request) {
   const url = new URL(req.url);
   const id = url.searchParams.get("id");
