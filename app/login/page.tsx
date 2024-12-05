@@ -44,9 +44,9 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="h-screen bg-gradient-to-r from-blue-500 to-indigo-600">
-      <div className="container mx-auto flex items-center justify-center h-full p-6">
-        <div className="bg-white w-full max-w-sm rounded-lg shadow-lg p-8">
+    <section className="h-screen bg-neutral-200 dark:bg-neutral-700">
+      <div className="container mx-auto flex h-full p-10">
+        <div className="w-full max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
           <h2 className="text-3xl font-semibold text-center mb-6 text-gray-800">Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
@@ -54,7 +54,6 @@ export default function LoginPage() {
               <input
                 type="text"
                 name="username"
-                id="username"
                 value={formData.username}
                 onChange={handleChange}
                 placeholder="Enter your username"
@@ -66,7 +65,6 @@ export default function LoginPage() {
               <input
                 type="password"
                 name="password"
-                id="password"
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
@@ -97,6 +95,19 @@ export default function LoginPage() {
                 Create one here
               </a>
             </p>
+          </div>
+        </div>
+
+        <div className="hidden lg:block lg:w-6/12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-r-lg p-6">
+          <div className="flex justify-center items-center h-full text-white">
+            <div>
+              <h4 className="mb-6 text-xl font-semibold">
+                We are more than just a company
+              </h4>
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
           </div>
         </div>
       </div>
