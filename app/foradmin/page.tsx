@@ -72,16 +72,6 @@ export default function ForAdmin() {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold text-center mb-6">Admin - Contact Us Requests</h1>
 
-      {/* Logout button */}
-      <div className="mb-4 text-center">
-        <button
-          onClick={handleLogout}
-          className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
-        >
-          Logout
-        </button>
-      </div>
-
       <table className="w-full table-auto">
         <thead>
           <tr>
@@ -123,6 +113,16 @@ export default function ForAdmin() {
           ))}
         </tbody>
       </table>
+
+      {/* Logout Button Below Table */}
+      <div className="mt-6 text-center">
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
+        >
+          Logout
+        </button>
+      </div>
     </div>
   );
 }
