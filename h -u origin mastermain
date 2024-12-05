@@ -1,0 +1,17 @@
+[33mcommit 7ab5c5910884f32162cfd01e681ce4e281bd6c1e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: punwrth1 <wrthxt1714@gmail.com>
+Date:   Thu Dec 5 23:32:26 2024 +0700
+
+    Update .gitignore and clean up tracked files
+
+[33mcommit e1b588fa56dad524c31c653ff33b0fe85e82cfcd[m
+Author: punwrth1 <wrthxt1714@gmail.com>
+Date:   Thu Dec 5 21:33:22 2024 +0700
+
+    contactus
+
+[33mcommit 71871d01baa7b46efcb54c6d0150101a2352b7af[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: punwrth1 <wrthxt1714@gmail.com>
+Date:   Sun Dec 1 23:02:14 2024 +0700
+
+    Initial commit from Create Next App

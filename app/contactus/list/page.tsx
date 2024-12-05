@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link"; // Import Link component for navigation
 
 type ContactUs = {
   id: string;
@@ -27,6 +28,16 @@ export default function ContactUsList() {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold text-center mb-6">Your Contact Requests</h1>
+      
+      {/* Back Button */}
+      <div className="mb-4">
+        <Link href="/contactus">
+          <button className="bg-gray-500 text-white py-2 px-6 rounded-lg text-xl hover:bg-gray-600">
+            Back to Contact Us
+          </button>
+        </Link>
+      </div>
+
       {contactRequests.length > 0 ? (
         contactRequests.map((request) => (
           <div key={request.id} className="mb-4 p-4 border rounded shadow">

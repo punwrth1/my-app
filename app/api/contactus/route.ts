@@ -1,7 +1,9 @@
-import prisma from "@/utils/db";  // Ensure this path is correct
+// pages/api/contactus.ts or app/api/contactus/route.ts
 
-// GET - Fetch all contact requests (For admin)
-export async function GET(req: Request) {
+import prisma from "@/utils/db";
+
+// GET - Fetch all contact requests
+export async function GET() {
   try {
     const contactRequests = await prisma.contactUs.findMany();
     return new Response(JSON.stringify(contactRequests), { status: 200 });
@@ -14,7 +16,7 @@ export async function GET(req: Request) {
   }
 }
 
-// POST - Create a new contact request (For users filling out the form)
+// POST - Create a new contact request
 export async function POST(req: Request) {
   const data = await req.json();
   try {
@@ -23,7 +25,7 @@ export async function POST(req: Request) {
         topic: data.topic,
         details: data.details,
         contact: data.contact,
-        status: "pending",  // Default status
+        status: "pending",  // Default status of "pending"
       },
     });
     return new Response(JSON.stringify(newRequest), { status: 201 });
@@ -36,7 +38,7 @@ export async function POST(req: Request) {
   }
 }
 
-// PUT - Update the status of a contact request (Approve or Reject) (For admin)
+// PUT - Update the status of a contact request
 export async function PUT(req: Request) {
   const data = await req.json();
   const { id, status } = data;
@@ -63,7 +65,7 @@ export async function PUT(req: Request) {
   }
 }
 
-// DELETE - Delete a contact request (For admin)
+// DELETE - Delete a contact request
 export async function DELETE(req: Request) {
   const url = new URL(req.url);
   const id = url.searchParams.get("id");
@@ -77,7 +79,7 @@ export async function DELETE(req: Request) {
 
   try {
     await prisma.contactUs.delete({ where: { id } });
-    return new Response(null, { status: 204 }); // No content on success
+    return new Response(null, { status: 204 });
   } catch (error) {
     console.error("Error deleting contact request:", error);
     return new Response(

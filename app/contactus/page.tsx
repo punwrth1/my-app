@@ -1,8 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function ContactUsPage() {
+  const router = useRouter();
+
+  // Handle logout logic
+  const handleLogout = () => {
+    // Clear any authentication tokens, e.g., from localStorage or cookies
+    localStorage.removeItem("token"); // or whatever key you use for token storage
+    router.push("/login"); // Redirect to login page after logout
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
       <h1 className="text-4xl font-bold text-center text-black mb-6">Contact Us</h1>
@@ -28,6 +38,14 @@ export default function ContactUsPage() {
             View Submitted Requests
           </button>
         </Link>
+
+        {/* Logout Button */}
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 text-white py-3 px-8 rounded-lg text-xl hover:bg-red-600 transition duration-300"
+        >
+          Logout
+        </button>
       </div>
     </div>
   );

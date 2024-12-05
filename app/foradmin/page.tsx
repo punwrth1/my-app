@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 type ContactUs = {
   id: string;
@@ -12,6 +13,7 @@ type ContactUs = {
 
 export default function ForAdmin() {
   const [contactRequests, setContactRequests] = useState<ContactUs[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     // Fetch all contact requests from the API
@@ -60,9 +62,26 @@ export default function ForAdmin() {
     }
   };
 
+  const handleLogout = () => {
+    // Clear the user's session (if you are using localStorage or cookies, remove the token here)
+    localStorage.removeItem("authToken"); // or delete cookie
+    router.push("/login"); // Redirect to the login page
+  };
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold text-center mb-6">Admin - Contact Us Requests</h1>
+
+      {/* Logout button */}
+      <div className="mb-4 text-center">
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
+        >
+          Logout
+        </button>
+      </div>
+
       <table className="w-full table-auto">
         <thead>
           <tr>
